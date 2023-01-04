@@ -2,55 +2,37 @@ import { useState, useRef } from "react"
 import heroImage from "../assets/images/image-jeremy.png"
 
 function TimeFrames(props) {
-    const [active, setActive] = useState('weekly')
-    const timeframeRef = useRef(null)
+    const [activeTimeframe, setActiveTimeframe] = useState('weekly')
     const dailyRef = useRef(null)
     const weeklyRef = useRef(null)
     const monthlyRef = useRef(null)
 
-    let toBeStyled;
-
     const handleClick = (e) => {
         const value = e.target.getAttribute('value')
         
-        setActive(value)
-        e.target.style.color = 'white'
-        console.log(e.target.style)
-        const myTimeframes = timeframeRef.current
-        for (const child of myTimeframes.childNodes) {
-            child.style.color = 'black'
-            if(child.innerText.toLowerCase() == active) {
-                child.style.color = 'white'
-                // child.toggleAttribute('active')
-            }
-                console.log(active, child.innerText)
-            
-        }
-        // (`${active}Ref`).current.style.color = 'white'
-        // if(active == 'daily') {
-        //     dailyRef.current.style.color = 'white'
-        //     monthlyRef.current.style.color = 'black'
-        //     weeklyRef.current.style.color = 'black'
-        // }
-        // else if(active == 'weekly') {
-        //     weeklyRef.current.style.color = 'white'
-        //     dailyRef.current.style.color = 'black'
-        //     monthlyRef.current.style.color = 'black'
-            
-        // }
-        // else {
-        //     monthlyRef.current.style.color = 'white'
-        //     weeklyRef.current.style.color = 'black'
-        //     dailyRef.current.style.color = 'black'
+        setActiveTimeframe(value)
 
-        // }
-        // console.log(timeframeRef.current, active)
+        if(activeTimeframe == 'daily') {
+            dailyRef.current.classList.add('active')
+            weeklyRef.current.classList.remove('active')
+            monthlyRef.current.classList.remove('active')
+        }
+        else if(activeTimeframe == 'weekly') {
+            dailyRef.current.classList.remove('active')
+            weeklyRef.current.classList.add('active')
+            monthlyRef.current.classList.remove('active')
+        }
+        else {
+            dailyRef.current.classList.remove('active')
+            weeklyRef.current.classList.remove('active')
+            monthlyRef.current.classList.add('active')
+        }
         
         props.handleTimeframe(value)
     }
     
     return (
-        <ul className="flex space-between timeframes container" ref={timeframeRef}>
+        <ul className="flex space-between timeframes container">
             <li>
                 <a href="#" onClick={handleClick} ref={dailyRef} value='daily'>Daily</a>  
             </li>

@@ -34,12 +34,12 @@ function Activity(props) {
     return (<div className="activity-container container" id={idName}>
                 <div className="activity container">
                     <div className="flex space-between">
-                        <h4>{title}</h4>
+                        <h3>{title}</h3>
                         <img className="iconImg" src={ellipsisIcon} alt="" />
                     </div> 
                     <div className="activity-details flex space-between">
-                        <h3>{editHour(current)}</h3>
-                        <p>
+                        <h3 className="large-txt">{editHour(current)}</h3>
+                        <p className="small-txt">
                         {previousText} - {editHour(previous)}
                         </p>
                     </div>

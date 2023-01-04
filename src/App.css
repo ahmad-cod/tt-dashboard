@@ -101,8 +101,9 @@ h3 {
 }
 .activity-container {
   padding: 0;
-  margin-top: 1.25rem;
-  padding-top: 3rem;
+  margin-top: 1.22rem;
+  padding-top: 2rem;
+  padding-bottom: 0;
 }
 #work {
   background-color: var(--Light-red);
@@ -114,7 +115,7 @@ h3 {
   background-color: var(--Soft-blue);
   background-image: url('./assets/images/icon-play.svg');
   background-repeat: no-repeat;
-  background-position: 96% -25%;
+  background-position: 96% -15%;
 }
 #study {
   background-color: var(--Light-red);
@@ -144,5 +145,60 @@ h3 {
 /****** RESPONSIVENESS ******/
 
 @media (min-width: 375px) {
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: auto;
+  }
+  .app {
+    display: grid;
+    max-width: 1000px;
+    justify-content: flex-start;
+    grid-template-columns: 22% 60%;
+    gap: 1rem;
+    padding-inline: 0;
+  }
 
+  .activities-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin: 0;
+  }
+  .activity-container {
+    margin-top: 0;
+    width: 200px;
+  }
+  .activity-details {
+    flex-direction: column;
+    margin-block: 1rem;
+    padding-block: 0.5rem;
+  }
+  .timeframes {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-container {
+    margin: 0;
+  }
+  .hero {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero-texts {
+    margin-top: 0.8rem;
+    padding-bottom: 1.4rem;
+  }
+  .large-txt {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 375px) {
+  h2 {
+    font-size: 1.2rem;
+  }
 }

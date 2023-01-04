@@ -9,7 +9,7 @@ function App() {
   const handleTimeframe = (props) => setTimeframe(props)
 
   return (
-    <div className="App">
+    <div className="app">
       <HeroContainer handleTimeframe={handleTimeframe}/>
       <Activities timeframe={timeframe}/>
     </div>

@@ -49,7 +49,7 @@ function Hero() {
     return (
         <div className="flex hero container">
             <img className="hero-image" src={heroImage} alt="Hero Image" />
-            <div className="texts flex column">
+            <div className="hero-texts flex column">
                 <p>Report for</p>
                 <h2>Jeremy Robson</h2>
             </div>

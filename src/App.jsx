@@ -4,8 +4,7 @@ import Activities from './components/Activities'
 import HeroContainer from './components/HeroContainer'
 
 function App() {
-  const [timeframe, setTimeframe] = useState('daily')
-  console.log('app', timeframe)
+  const [timeframe, setTimeframe] = useState('weekly')
 
   const handleTimeframe = (props) => setTimeframe(props)
 

@@ -6,7 +6,12 @@ import data from '../../data.json'
 function Activity(props) {
     const { title, timeframe, timeframes } = props
     const { current, previous } = timeframes[timeframe]
-
+    let idName = title.toLowerCase()
+    if(idName.includes(' ')) {
+        idName = idName.replace(/\s/g, '-')
+        console.log('includes space')
+    }
+    console.log(idName)
     function editHour (hour) {
         const suffix = (hour > 1) ? 'hrs' : 'hr'
         let editedHour = hour + suffix
@@ -29,15 +34,13 @@ function Activity(props) {
             break;
     }
 
-    return (<div className="activity-container">
-                <div className="activity">
-                    <div className="space-between">
+    return (<div className="activity-container container" id={idName}>
+                <div className="activity container">
+                    <div className="flex space-between">
                         <h4>{title}</h4>
-                        <img src={ellipsisIcon} alt="" />
+                        <img className="iconImg" src={ellipsisIcon} alt="" />
                     </div> 
-                    <div className="activity-details">
-                        {
-                        }
+                    <div className="activity-details flex space-between">
                         <h3>{editHour(current)}</h3>
                         <p>
                         {previousText} - {editHour(previous)}
@@ -50,16 +53,12 @@ function Activity(props) {
 
 export default function Activities(props) {
     const { timeframe } = props
-    // const {current, previous} = 
 
-    console.log(timeframe)
     return (<div className="activities-container">
             {data.map(datum => <Activity key={datum.id} 
                 {...datum}
                 timeframe={timeframe}
                 />)}
-
-                {/* <Activity /> */}
             </div>
     )
 }

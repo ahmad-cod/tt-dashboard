@@ -39,9 +39,12 @@ img {
 ul {
   list-style: none;
 }
+li {
+  color: var(--Desaturated-blue);
+}
 a {
   text-decoration: inherit;
-  color: var(--Desaturated-blue);
+  color: inherit;
 }
 a:hover {
   color: white;

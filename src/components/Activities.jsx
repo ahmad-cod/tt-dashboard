@@ -1,7 +1,5 @@
 import ellipsisIcon from "../assets/images/icon-ellipsis.svg"
 import data from '../../data.json'
-// import { useState } from "react"
-// const [activities, setActivities] = useState(data)
 
 function Activity(props) {
     const { title, timeframe, timeframes } = props
@@ -9,9 +7,8 @@ function Activity(props) {
     let idName = title.toLowerCase()
     if(idName.includes(' ')) {
         idName = idName.replace(/\s/g, '-')
-        console.log('includes space')
     }
-    console.log(idName)
+
     function editHour (hour) {
         const suffix = (hour > 1) ? 'hrs' : 'hr'
         let editedHour = hour + suffix

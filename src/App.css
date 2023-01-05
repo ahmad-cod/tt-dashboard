@@ -45,7 +45,7 @@ a {
 a:hover {
   color: white;
 }
-a[active] {
+.active, a.active {
   color: white;
 }
 
@@ -145,11 +145,10 @@ h3 {
 /****** RESPONSIVENESS ******/
 
 @media (min-width: 375px) {
-  #root {
+  body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-block: auto;
   }
   .app {
     display: grid;
@@ -197,6 +196,22 @@ h3 {
   }
 }
 
+@media (max-width: 830px) {
+  
+  .activities-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero {
+    gap: 3rem;
+  }
+  .large-txt {
+    font-size: 1.8rem;
+  }
+  .timeframes {
+    margin-top: 1rem;
+  }
+}
 @media (max-width: 375px) {
   h2 {
     font-size: 1.2rem;

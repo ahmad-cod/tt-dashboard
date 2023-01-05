@@ -1,8 +1,7 @@
-import { useState, useRef } from "react"
+import { useRef } from "react"
 import heroImage from "../assets/images/image-jeremy.png"
 
 function TimeFrames(props) {
-    const [activeTimeframe, setActiveTimeframe] = useState('weekly')
     const dailyRef = useRef(null)
     const weeklyRef = useRef(null)
     const monthlyRef = useRef(null)
@@ -10,19 +9,22 @@ function TimeFrames(props) {
     const handleClick = (e) => {
         const value = e.target.getAttribute('value')
         
-        setActiveTimeframe(value)
-
-        if(activeTimeframe == 'daily') {
+        if(value == 'daily') {
+            console.log(value, 'daily')
             dailyRef.current.classList.add('active')
             weeklyRef.current.classList.remove('active')
             monthlyRef.current.classList.remove('active')
         }
-        else if(activeTimeframe == 'weekly') {
+        else if(value == 'weekly') {
+            console.log(value, 'weekly')
+
             dailyRef.current.classList.remove('active')
             weeklyRef.current.classList.add('active')
             monthlyRef.current.classList.remove('active')
         }
         else {
+            console.log(value, 'monthly')
+
             dailyRef.current.classList.remove('active')
             weeklyRef.current.classList.remove('active')
             monthlyRef.current.classList.add('active')
@@ -37,7 +39,7 @@ function TimeFrames(props) {
                 <a href="#" onClick={handleClick} ref={dailyRef} value='daily'>Daily</a>  
             </li>
             <li>
-                <a href="#" onClick={handleClick} ref={weeklyRef} value='weekly'>Weekly</a>
+                <a href="#" onClick={handleClick} ref={weeklyRef} value='weekly' className="active">Weekly</a>
             </li>
             <li>
                 <a href="#" onClick={handleClick} ref={monthlyRef} value='monthly'>Monthly</a>

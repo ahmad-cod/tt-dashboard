@@ -51,11 +51,11 @@ function Activity(props) {
 export default function Activities(props) {
     const { timeframe } = props
 
-    return (<div className="activities-container">
+    return (<main role='main' className="activities-container">
             {data.map(datum => <Activity key={datum.id} 
                 {...datum}
                 timeframe={timeframe}
                 />)}
-            </div>
+            </main>
     )
 }

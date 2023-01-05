@@ -60,9 +60,9 @@ function Hero() {
 }
 export default function HeroContainer(props) {
     return (
-        <div className="hero-container container">
+        <header role='banner' className="hero-container container">
             <Hero />
             <TimeFrames handleTimeframe={props.handleTimeframe} />
-        </div>
+        </header>
     )
 }

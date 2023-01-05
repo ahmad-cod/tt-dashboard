@@ -53,7 +53,7 @@ function Hero() {
             <img className="hero-image" src={heroImage} alt="Hero Image" />
             <div className="hero-texts flex column">
                 <p>Report for</p>
-                <h2>Jeremy Robson</h2>
+                <h1>Jeremy Robson</h1>
             </div>
         </div>
     )
